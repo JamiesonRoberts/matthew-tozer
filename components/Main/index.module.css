@@ -1,0 +1,19 @@
+.main {
+    flex: 1 1 40rem;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-padding);
+}
+
+.section {
+    background-color: rgba(228, 233, 246, .4);
+    border-top: 0.25rem solid #307991;
+    border-bottom: 0.25rem solid #309179;
+    padding: var(--global-padding);
+}
+
+.section h2 {
+    font-size: 1.75rem;
+    padding-bottom: 0.5rem;
+}
