@@ -64,7 +64,7 @@ export default function StructuredData() {
                                         "sameAs": "https://www.queensu.ca/"
                                     }
                                 }
-                            },
+                            }
                         ],
                         "affiliation": [
                             {
