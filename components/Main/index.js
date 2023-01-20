@@ -21,22 +21,30 @@ export default function Main(props) {
                         CEC
                     </Link>
                     ,{' '}
-                    <a
-                        href='https://collections.cmccanada.org/final/Portal/Composer-Showcase.aspx?component=AAIL&record=7578ed3f-aa26-48dd-ac89-6395b291eca1'
-                        target='_blank'
+                    <Link
+                        href={
+                            'https://collections.cmccanada.org/final/Portal/Composer-Showcase.aspx?component=AAIL&record=7578ed3f-aa26-48dd-ac89-6395b291eca1'
+                        }
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
                     >
                         CMC,
-                    </a>{' '}
-                    <a
-                        href='https://www.composition.org/current-members/'
-                        target='_blank'
+                    </Link>{' '}
+                    <Link
+                        href={'ttps://www.composition.org/current-members/'}
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
                     >
                         CLC
-                    </a>{' '}
+                    </Link>{' '}
                     and a{' '}
-                    <a href='https://www.ormta.org' target='_blank'>
+                    <Link
+                        href={'https://www.ormta.org'}
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                    >
                         ORMTA
-                    </a>
+                    </Link>
                     . Matthew is an advocate of strong music education and has
                     participated in many instructional courses.
                 </p>
