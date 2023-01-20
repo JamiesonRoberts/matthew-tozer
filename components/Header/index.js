@@ -20,7 +20,9 @@ export default function Header() {
                     className={styles.headshot}
                     width={270}
                     height={337}
-                    alt={'Dr. Matthew Tozer'}
+                    alt={
+                        'A headshot grayscale image of Dr. Matthew Tozer standing in front of a stone wall'
+                    }
                     priority={true}
                 />
                 <div className={styles.spacer} />
@@ -30,7 +32,7 @@ export default function Header() {
                     }
                     className={styles.externalLinkList}
                 >
-                    <li className={styles.externalLinkItem}>
+                    <li>
                         <Link
                             href={'https://twitter.com/matthewtozer'}
                             target={'_blank'}
@@ -56,7 +58,7 @@ export default function Header() {
                             </span>
                         </Link>
                     </li>
-                    <li className={styles.externalLinkItem}>
+                    <li>
                         <Link
                             href={'https://www.facebook.com/mtozercomposition'}
                             target={'_blank'}
@@ -82,7 +84,7 @@ export default function Header() {
                             </span>
                         </Link>
                     </li>
-                    <li className={styles.externalLinkItem}>
+                    <li>
                         <Link
                             href={'https://soundcloud.com/mwtozer'}
                             target={'_blank'}
@@ -109,7 +111,7 @@ export default function Header() {
                             </span>
                         </Link>
                     </li>
-                    <li className={styles.externalLinkItem}>
+                    <li>
                         <Link
                             href={'https://www.youtube.com/user/matttozer'}
                             target={'_blank'}
@@ -135,7 +137,7 @@ export default function Header() {
                             </span>
                         </Link>
                     </li>
-                    <li className={styles.externalLinkItem}>
+                    <li>
                         <Link
                             href={
                                 'https://ca.linkedin.com/in/matthew-tozer-00333b2b'
