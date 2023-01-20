@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styles from './index.module.css'
 
-export default function Main(props) {
+export default function Main() {
     return (
         <main className={styles.main}>
             <section className={styles.section}>
@@ -49,16 +49,17 @@ export default function Main(props) {
                     participated in many instructional courses.
                 </p>
                 <p>
-                    Described as ‘highly lyrical’ and ‘rich in harmony’
-                    Matthew’s music has been performed across Canada, the United
-                    States, and Europe. Matthew is actively involved in the
-                    creation of new work through the collaborative process. His
-                    compositions have been work-shopped and/or performed by
-                    organizations and groups including: The Toronto Symphony
-                    Orchestra, TorQ Percussion, The Bozzini String Quartet, The
-                    Erato Ensemble, The Strathcona Quartet, The Vancouver
-                    Chamber Choir, The Aventa Ensemble, Soundstreams Canada, The
-                    Madawaksa String Quartet, and Pacific Opera Victoria.
+                    Described as &apos;highly lyrical&apos; and &apos;rich in
+                    harmony&apos; Matthew’s music has been performed across
+                    Canada, the United States, and Europe. Matthew is actively
+                    involved in the creation of new work through the
+                    collaborative process. His compositions have been
+                    work-shopped and/or performed by organizations and groups
+                    including: The Toronto Symphony Orchestra, TorQ Percussion,
+                    The Bozzini String Quartet, The Erato Ensemble, The
+                    Strathcona Quartet, The Vancouver Chamber Choir, The Aventa
+                    Ensemble, Soundstreams Canada, The Madawaksa String Quartet,
+                    and Pacific Opera Victoria.
                 </p>
             </section>
             <section className={styles.section}>
