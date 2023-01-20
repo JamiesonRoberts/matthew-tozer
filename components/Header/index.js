@@ -16,6 +16,7 @@ export default function Header(props) {
                     className={styles.headshot}
                     width={270}
                     height={337}
+                    alt={'Dr. Matthew Tozer'}
                     priority
                 />
                 <div className={styles.spacer} />
