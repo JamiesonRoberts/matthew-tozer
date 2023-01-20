@@ -67,7 +67,7 @@ export default function Main() {
                 <p>
                     Matthew Tozer holds a PhD in Music from the University of
                     Western Ontario and was named Runner up in the London
-                    Community News 2015 Reader’s Choice Awards for Music
+                    Community News 2015 Reader&apos;s Choice Awards for Music
                     Schools.
                 </p>
                 <p>Matthew is always looking to add students to his studio.</p>
