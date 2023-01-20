@@ -145,7 +145,7 @@ export default function StructuredData() {
                                         "@type": "Offer",
                                         "itemOffered": {
                                             "@type": "Service",
-                                            "name": "Private Music Lessons"
+                                            "name": "Private Music Lessons",
                                             "description": "Teaching private music lessons in piano, history, theory, and composition."
                                         }
                                     },
