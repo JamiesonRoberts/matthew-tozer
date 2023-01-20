@@ -45,8 +45,12 @@ export default function Main() {
                     >
                         ORMTA
                     </Link>
-                    . Matthew is an advocate of strong music education and has
-                    participated in many instructional courses.
+                    . His dissertation involved the hybridization of the
+                    traditional baroque dance movements with the classical
+                    concerto featuring the 17th century instrument, the Viola da
+                    Gamba in combination with the string orchestra. Matthew is
+                    also an advocate of strong music education and has
+                    participated in many university level instructional courses.
                 </p>
                 <p>
                     Described as &apos;highly lyrical&apos; and &apos;rich in
