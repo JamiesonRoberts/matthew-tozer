@@ -9,11 +9,6 @@ export default function Home() {
     return (
         <>
             <Head>
-                <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
-                />
-
                 <title>Dr. Matthew Tozer - Composer & Educator</title>
                 <meta
                     name='title'
@@ -58,43 +53,14 @@ export default function Home() {
                     content='https://matthewtozer.com/mtozersocialshare.jpg'
                 />
 
-                <link
-                    rel='apple-touch-icon'
-                    sizes='180x180'
-                    href='https://matthewtozer.com/apple-touch-icon.png'
-                />
-                <link
-                    rel='icon'
-                    type='image/png'
-                    sizes='32x32'
-                    href='https://matthewtozer.com/favicon-32x32.png'
-                />
-                <link
-                    rel='icon'
-                    type='image/png'
-                    sizes='16x16'
-                    href='https://matthewtozer.com/favicon-16x16.png'
-                />
-                <link
-                    rel='manifest'
-                    href='https://matthewtozer.com/site.webmanifest'
-                />
-                <link
-                    rel='mask-icon'
-                    href='https://matthewtozer.com/safari-pinned-tab.svg'
-                    color='#eeeeee'
-                />
-                <meta name='msapplication-TileColor' content='#ffffff' />
-                <meta name='theme-color' content='#eeeeee' />
-
                 <link rel='canonical' href='https://matthewtozer.com' />
             </Head>
             <div className={'layout'}>
                 <Header />
                 <Main />
                 <Footer />
-                <StructuredData />
             </div>
+            <StructuredData />
         </>
     )
 }
