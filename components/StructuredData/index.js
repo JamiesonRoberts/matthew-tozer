@@ -1,9 +1,11 @@
-export default function StructuredData() {
+export default function StructuredData({ locationData }) {
+    console.log(locationData)
     return (
         <>
             <script
                 type='application/ld+json'
                 key={'Person-jsonld'}
+                id={'person'}
                 dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "http://www.schema.org",
@@ -12,9 +14,6 @@ export default function StructuredData() {
                         "name": "Matthew Tozer",
                         "honorificPrefix": "Dr",
                         "nationality": "Canadian",
-                        "hasOfferCatalog": {
-                            "@id": "#OfferCatalog"
-                        },
                         "hasCredential": [
                             {
                                 "@type": "EducationalOccupationalCredential",
@@ -120,7 +119,7 @@ export default function StructuredData() {
                         "telephone": "(519) 857-7942",
                         "sameAs": [
                             "https://twitter.com/matthewtozer",
-                            "https://www.facebook.com/mtozercomposition",
+                            "https://www.facebook.com/matthewtozer",
                             "https://soundcloud.com/mwtozer",
                             "https://www.youtube.com/user/matttozer",
                             "https://ca.linkedin.com/in/matthew-tozer-00333b2b"
@@ -130,41 +129,67 @@ export default function StructuredData() {
             />
             <script
                 type='application/ld+json'
+                key={'LocalBusiness-jsonld'}
                 dangerouslySetInnerHTML={{
                     __html: `{
-                        "@context": "https://schema.org",
-                        "@type": "OfferCatalog",
-                        "@id": "#OfferCatalog",
-                        "name": "Services",
-                        "itemListElement": [
+                        "@context": "https://schema.org"
+                        "@type": "LocalBusiness",
+                        "@id": "https://matthewtozer.com/#localbusiness",
+                        "name": "Matthew Tozer Music Lesson"
+                        "contactPoint": {
+                            "@id": "https://matthewtozer.com/#person"
+                        },
+                        "url": "https://matthewtozer.com",
+                        "sameAs": [
+                            "https://maps.google.com/?cid=9221277794800284912",
+                            "https://www.facebook.com/mtozercomposition"
+                        ],
+                        "telephone": "+15198577942",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "57 Earlscourt Crescent",
+                            "addressLocality": "Woodstock",
+                            "addressRegion": "ON",
+                            "postalCode": "N4S5H2",
+                            "addressCountry": "CA"
+                        },
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": ${locationData.rating},
+                            "reviewCount": ${locationData.user_ratings_total}
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": ${locationData.geometry.location.lat},
+                            "longitude": ${locationData.geometry.location.lng}
+                        },
+                        "openingHoursSpecification": [
                             {
-                                "@type": "OfferCatalog",
-                                "name": "Private Music Lessons and Musical Composition",
-                                "itemListElement": [
-                                    {
-                                        "@type": "Offer",
-                                        "itemOffered": {
-                                            "@type": "Service",
-                                            "name": "Private Music Lessons",
-                                            "description": "Teaching private music lessons in piano, history, theory, and composition."
-                                        }
-                                    },
-                                    {
-                                        "@type": "Offer",
-                                        "itemOffered": {
-                                            "@type": "Service",
-                                            "name": "Music Composition"
-                                        }
-                                    }
-                                ]
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday"
+                                ],
+                                "opens": "9:30",
+                                "closes": "21:00"
+                            },
+                            {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": "Saturday",
+                                "opens": "9:00",
+                                "closes": "13:00"
                             }
-                        ]
+                        ],
                     }`,
                 }}
-                key={'OfferCatalog-jsonld'}
             />
             <script
                 type='application/ld+json'
+                key={'Website-jsonld'}
+                id={'website'}
                 dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "http://schema.org",
@@ -183,7 +208,6 @@ export default function StructuredData() {
                         }
                     }`,
                 }}
-                key={'Website-jsonld'}
             />
         </>
     )
