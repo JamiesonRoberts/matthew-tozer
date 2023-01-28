@@ -1,5 +1,33 @@
 export default function StructuredData({ locationData }) {
-    console.log(locationData)
+    const dayMapping = {
+        0: 'Sunday',
+        1: 'Monday',
+        2: 'Tuesday',
+        3: 'Wednesday',
+        4: 'Thursday',
+        5: 'Friday',
+        6: 'Saturday',
+    }
+
+    const openingHoursSpecification = []
+
+    locationData.opening_hours.periods.forEach((period) => {
+        const opens = `${period.open.time.substring(
+            0,
+            2
+        )}:${period.open.time.substring(2)}`
+        const closes = `${period.close.time.substring(
+            0,
+            2
+        )}:${period.close.time.substring(2)}`
+        openingHoursSpecification.push({
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: `${dayMapping[period.open.day]}`,
+            opens,
+            closes,
+        })
+    })
+
     return (
         <>
             <script
@@ -116,7 +144,7 @@ export default function StructuredData({ locationData }) {
                             "addressCountry": "Canada"
                         },
                         "email": "matttozer@gmail.com",
-                        "telephone": "(519) 857-7942",
+                        "telephone": "+15198577942",
                         "sameAs": [
                             "https://twitter.com/matthewtozer",
                             "https://www.facebook.com/matthewtozer",
@@ -130,6 +158,7 @@ export default function StructuredData({ locationData }) {
             <script
                 type='application/ld+json'
                 key={'LocalBusiness-jsonld'}
+                id={'localBusiness'}
                 dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "https://schema.org"
@@ -144,6 +173,7 @@ export default function StructuredData({ locationData }) {
                             "https://maps.google.com/?cid=9221277794800284912",
                             "https://www.facebook.com/mtozercomposition"
                         ],
+                        "email": "matttozer@gmail.com",
                         "telephone": "+15198577942",
                         "address": {
                             "@type": "PostalAddress",
@@ -163,26 +193,9 @@ export default function StructuredData({ locationData }) {
                             "latitude": ${locationData.geometry.location.lat},
                             "longitude": ${locationData.geometry.location.lng}
                         },
-                        "openingHoursSpecification": [
-                            {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": [
-                                    "Monday",
-                                    "Tuesday",
-                                    "Wednesday",
-                                    "Thursday",
-                                    "Friday"
-                                ],
-                                "opens": "9:30",
-                                "closes": "21:00"
-                            },
-                            {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": "Saturday",
-                                "opens": "9:00",
-                                "closes": "13:00"
-                            }
-                        ],
+                        "openingHoursSpecification": ${JSON.stringify(
+                            openingHoursSpecification
+                        )}
                     }`,
                 }}
             />
