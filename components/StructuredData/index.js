@@ -1,9 +1,39 @@
-export default function StructuredData() {
+export default function StructuredData({ locationData }) {
+    const dayMapping = {
+        0: 'Sunday',
+        1: 'Monday',
+        2: 'Tuesday',
+        3: 'Wednesday',
+        4: 'Thursday',
+        5: 'Friday',
+        6: 'Saturday',
+    }
+
+    const openingHoursSpecification = []
+
+    locationData.opening_hours.periods.forEach((period) => {
+        const opens = `${period.open.time.substring(
+            0,
+            2
+        )}:${period.open.time.substring(2)}`
+        const closes = `${period.close.time.substring(
+            0,
+            2
+        )}:${period.close.time.substring(2)}`
+        openingHoursSpecification.push({
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: `${dayMapping[period.open.day]}`,
+            opens,
+            closes,
+        })
+    })
+
     return (
         <>
             <script
                 type='application/ld+json'
                 key={'Person-jsonld'}
+                id={'person'}
                 dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "http://www.schema.org",
@@ -12,9 +42,6 @@ export default function StructuredData() {
                         "name": "Matthew Tozer",
                         "honorificPrefix": "Dr",
                         "nationality": "Canadian",
-                        "hasOfferCatalog": {
-                            "@id": "#OfferCatalog"
-                        },
                         "hasCredential": [
                             {
                                 "@type": "EducationalOccupationalCredential",
@@ -117,10 +144,10 @@ export default function StructuredData() {
                             "addressCountry": "Canada"
                         },
                         "email": "matttozer@gmail.com",
-                        "telephone": "(519) 857-7942",
+                        "telephone": "+15198577942",
                         "sameAs": [
                             "https://twitter.com/matthewtozer",
-                            "https://www.facebook.com/mtozercomposition",
+                            "https://www.facebook.com/matthewtozer",
                             "https://soundcloud.com/mwtozer",
                             "https://www.youtube.com/user/matttozer",
                             "https://ca.linkedin.com/in/matthew-tozer-00333b2b"
@@ -130,41 +157,52 @@ export default function StructuredData() {
             />
             <script
                 type='application/ld+json'
+                key={'LocalBusiness-jsonld'}
+                id={'localBusiness'}
                 dangerouslySetInnerHTML={{
                     __html: `{
-                        "@context": "https://schema.org",
-                        "@type": "OfferCatalog",
-                        "@id": "#OfferCatalog",
-                        "name": "Services",
-                        "itemListElement": [
-                            {
-                                "@type": "OfferCatalog",
-                                "name": "Private Music Lessons and Musical Composition",
-                                "itemListElement": [
-                                    {
-                                        "@type": "Offer",
-                                        "itemOffered": {
-                                            "@type": "Service",
-                                            "name": "Private Music Lessons",
-                                            "description": "Teaching private music lessons in piano, history, theory, and composition."
-                                        }
-                                    },
-                                    {
-                                        "@type": "Offer",
-                                        "itemOffered": {
-                                            "@type": "Service",
-                                            "name": "Music Composition"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
+                        "@context": "https://schema.org"
+                        "@type": "LocalBusiness",
+                        "@id": "https://matthewtozer.com/#localbusiness",
+                        "name": "Matthew Tozer Music Lesson"
+                        "contactPoint": {
+                            "@id": "https://matthewtozer.com/#person"
+                        },
+                        "url": "https://matthewtozer.com",
+                        "sameAs": [
+                            "https://maps.google.com/?cid=9221277794800284912",
+                            "https://www.facebook.com/mtozercomposition"
+                        ],
+                        "email": "matttozer@gmail.com",
+                        "telephone": "+15198577942",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "57 Earlscourt Crescent",
+                            "addressLocality": "Woodstock",
+                            "addressRegion": "ON",
+                            "postalCode": "N4S5H2",
+                            "addressCountry": "CA"
+                        },
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": ${locationData.rating},
+                            "reviewCount": ${locationData.user_ratings_total}
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": ${locationData.geometry.location.lat},
+                            "longitude": ${locationData.geometry.location.lng}
+                        },
+                        "openingHoursSpecification": ${JSON.stringify(
+                            openingHoursSpecification
+                        )}
                     }`,
                 }}
-                key={'OfferCatalog-jsonld'}
             />
             <script
                 type='application/ld+json'
+                key={'Website-jsonld'}
+                id={'website'}
                 dangerouslySetInnerHTML={{
                     __html: `{
                         "@context": "http://schema.org",
@@ -183,7 +221,6 @@ export default function StructuredData() {
                         }
                     }`,
                 }}
-                key={'Website-jsonld'}
             />
         </>
     )
