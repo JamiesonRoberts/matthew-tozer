@@ -168,9 +168,7 @@ export default function StructuredData({ locationData }) {
                         "contactPoint": {
                             "@id": "https://matthewtozer.com/#person"
                         },
-                        "image": [
-                            "https://matthewtozer.com/mtozerheadshot.jpg",
-                        ],
+                        "image": "https://matthewtozer.com/mtozerheadshot.jpg",
                         "url": "https://matthewtozer.com",
                         "sameAs": [
                             "https://maps.google.com/?cid=9221277794800284912"
