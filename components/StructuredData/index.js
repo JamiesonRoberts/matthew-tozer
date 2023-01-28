@@ -161,7 +161,7 @@ export default function StructuredData({ locationData }) {
                 id={'localBusiness'}
                 dangerouslySetInnerHTML={{
                     __html: `{
-                        "@context": "https://schema.org"
+                        "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "@id": "https://matthewtozer.com/#localbusiness",
                         "name": "Matthew Tozer Music Lesson"
