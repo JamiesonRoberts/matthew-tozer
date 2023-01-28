@@ -67,13 +67,14 @@ function Home({ locationData }) {
 
 export async function getStaticProps() {
     const res = await fetch(
-        'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJDyCfdJYfLIgR8LRERkyP-H8&key=AIzaSyDLkmzbUIMAGRi16F2WBjQ21YuqCytQKVM'
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJDyCfdJYfLIgR8LRERkyP-H8&key=${process.env.PLACES_SERVER_SIDE_API_KEY}`
     )
+
     const { result } = await res.json()
 
     return {
         props: {
-            locationData: result,
+            locationData: result || {},
         },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
