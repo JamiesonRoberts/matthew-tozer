@@ -164,7 +164,7 @@ export default function StructuredData({ locationData }) {
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "@id": "https://matthewtozer.com/#localbusiness",
-                        "name": "Matthew Tozer Music Lesson"
+                        "name": "Matthew Tozer Music Lesson",
                         "contactPoint": {
                             "@id": "https://matthewtozer.com/#person"
                         },
