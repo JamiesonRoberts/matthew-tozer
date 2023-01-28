@@ -147,7 +147,7 @@ export default function StructuredData({ locationData }) {
                         "telephone": "+15198577942",
                         "sameAs": [
                             "https://twitter.com/matthewtozer",
-                            "https://www.facebook.com/matthewtozer",
+                            "https://www.facebook.com/mtozercomposition",
                             "https://soundcloud.com/mwtozer",
                             "https://www.youtube.com/user/matttozer",
                             "https://ca.linkedin.com/in/matthew-tozer-00333b2b"
@@ -168,10 +168,12 @@ export default function StructuredData({ locationData }) {
                         "contactPoint": {
                             "@id": "https://matthewtozer.com/#person"
                         },
+                        "image": [
+                            "https://matthewtozer.com/mtozerheadshot.jpg",
+                        ],
                         "url": "https://matthewtozer.com",
                         "sameAs": [
-                            "https://maps.google.com/?cid=9221277794800284912",
-                            "https://www.facebook.com/mtozercomposition"
+                            "https://maps.google.com/?cid=9221277794800284912"
                         ],
                         "email": "matttozer@gmail.com",
                         "telephone": "+15198577942",
