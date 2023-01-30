@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import Reviews from '@/components/Reviews'
+
 import styles from './index.module.css'
 
 export default function Main() {
@@ -100,6 +102,7 @@ export default function Main() {
                         for rates and availability.
                     </strong>
                 </p>
+                <Reviews />
             </section>
         </main>
     )
