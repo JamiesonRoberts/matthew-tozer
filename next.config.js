@@ -15,6 +15,14 @@ const moduleExports = {
         // a non-locale prefixed path e.g. `/hello`
         defaultLocale: 'en-CA',
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+            },
+        ],
+    },
     sentry: {
         // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
         // sections below for information on the following options:
