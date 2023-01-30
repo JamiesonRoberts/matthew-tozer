@@ -20,7 +20,7 @@ const moduleExports = {
         // sections below for information on the following options:
         hideSourceMaps: true,
         autoInstrumentServerFunctions: false,
-        excludeServerRoutes: [/\/api\/getReviews/],
+        excludeServerRoutes: [/\/api/],
     },
 }
 
