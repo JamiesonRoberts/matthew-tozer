@@ -165,9 +165,13 @@ export default function StructuredData({ locationData }) {
                         "@type": "LocalBusiness",
                         "@id": "https://matthewtozer.com/#localbusiness",
                         "name": "Matthew Tozer Music Lesson",
-                        "contactPoint": {
-                            "@id": "https://matthewtozer.com/#person"
-                        },
+                        "contactPoint" : [
+                            {
+                                "@type" : "ContactPoint",
+                                "email": "matttozer@gmail.com",
+                                "telephone": "+15198577942"
+                            }
+                        ],
                         "image": "https://matthewtozer.com/mtozerheadshot.jpg",
                         "url": "https://matthewtozer.com",
                         "sameAs": [
@@ -211,10 +215,9 @@ export default function StructuredData({ locationData }) {
                         "url": "https://matthewtozer.com",
                         "image": "https://matthewtozer.com/mtozerheadshot.jpg",
                         "inLanguage": "en-CA",
-                        "author": "Matthew Tozer",
-                        "keywords": "Matthew Tozer",
-                        "accountablePerson": {
-                            "@id": "https://matthewtozer.com/#person"
+                        "author": {
+                            "@type": "Person",
+                            "name":"Matthew Tozer"
                         },
                         "about": {
                             "@id": "https://matthewtozer.com/#person"
