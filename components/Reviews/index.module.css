@@ -1,3 +1,12 @@
+.divider {
+    margin: var(--global-padding) 0;
+    border-bottom: 0;
+}
+
+.heading {
+    margin: 0;
+}
+
 .quoteBlocks {
     padding-top: var(--global-padding);
     display: flex;
@@ -11,4 +20,52 @@
     padding: var(--global-padding);
     flex: 1 1 20rem;
     min-width: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--global-padding);
+}
+
+.quoteBlock.loading {
+    min-height: 10rem;
+}
+
+.quote {
+    margin: 0;
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    gap: var(--global-padding);
+}
+
+.starAndName {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.rating {
+    display: flex;
+    padding-top: 0.25rem;
+}
+
+.rating svg {
+    width: 1rem;
+    height: auto;
+}
+
+.skeletonBox {
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    overflow: hidden;
+    background-color: #DDDBDD;
+}
+
+.skeletonImage {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
 }
