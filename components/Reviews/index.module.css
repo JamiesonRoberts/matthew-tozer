@@ -1,0 +1,14 @@
+.quoteBlocks {
+    padding-top: var(--global-padding);
+    display: flex;
+    gap: var(--global-padding);
+    flex-wrap: wrap;
+}
+
+.quoteBlock {
+    background-color: #ffffff;
+    margin: 0;
+    padding: var(--global-padding);
+    flex: 1 1 20rem;
+    min-width: 16rem;
+}
