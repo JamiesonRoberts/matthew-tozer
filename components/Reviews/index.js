@@ -8,19 +8,11 @@ export default function Reviews() {
 
     useEffect(() => {
         setLoading(true)
-
-        const controller = new AbortController()
-        const id = setTimeout(() => controller.abort(), 1000)
-
-        fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}&key=${process.env.NEXT_PUBLIC_API_KEY}`,
-            { signal: controller.signal }
-        )
+        fetch('/api/getReviews')
             .then((res) => res.json())
-            .then((data) => {
-                setData(data)
-                setLoading(false)
-            })
+            .then(setData)
+            .catch(() => setData(null))
+            .finally(() => setLoading(false))
     }, [])
 
     if (isLoading)

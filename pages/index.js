@@ -7,7 +7,7 @@ import StructuredData from '@/components/StructuredData'
 
 export async function getStaticProps() {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}&key=${process.env.SERVER_API_KEY}`
+        `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}`
     )
 
     const { result } = await res.json()
