@@ -20,6 +20,7 @@ const moduleExports = {
         // sections below for information on the following options:
         hideSourceMaps: true,
         autoInstrumentServerFunctions: false,
+        autoInstrumentMiddleware: false,
     },
 }
 
@@ -34,16 +35,6 @@ const sentryWebpackPluginOptions = {
     hideSourceMaps: true,
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options.
-    webpack: (config, options) => {
-        if (options.isServer && options.nextRuntime === 'edge') {
-            config.resolve.alias = {
-                ...config.resolve.alias,
-                './sentry.client.config.js': false,
-                './sentry.server.config.js': false,
-            }
-        }
-        return config
-    },
 }
 
 // Make sure adding Sentry options is the last code to run before exporting, to
