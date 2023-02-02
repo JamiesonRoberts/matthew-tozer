@@ -74,11 +74,13 @@ p + p {
     overflow: hidden;
     position: relative;
     width: 100%;
+    outline: none;
 }
 
 .flickity-viewport .flickity-slider {
     height: 100%;
     width: 100%;
+    outline: none;
 }
 
 .flickity-button {
@@ -96,6 +98,7 @@ p + p {
     cursor: pointer;
     background-color: rgba(232,232,232,0.5);
     transition: background-color 0.2s ease;
+    outline: none;
 }
 
 .flickity-button:hover, .flickity-button:focus {

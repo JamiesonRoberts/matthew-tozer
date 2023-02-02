@@ -12,6 +12,7 @@
     min-height: 9rem;
     width: calc(100% - 1rem);
     margin: var(--global-padding) auto 0;
+    outline: none;
 }
 
 .quoteBlock {
