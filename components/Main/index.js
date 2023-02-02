@@ -8,6 +8,40 @@ export default function Main() {
     return (
         <main className={styles.main}>
             <section className={styles.section}>
+                <h2>Lessons</h2>
+                <p>
+                    Matthew Tozer holds a PhD in Music from the University of
+                    Western Ontario and is always looking to add students to his
+                    studio. Matthew Tozer teaches students in Woodstock, London,
+                    and other towns in the surrounding Oxford and Middlesex
+                    counties.
+                </p>
+                <p>
+                    Lessons available in: Piano, Music History, Music Theory and
+                    Composition.
+                </p>
+                <p>
+                    <strong>Lesson are available in your home or online</strong>
+                </p>
+                <p>
+                    <strong>
+                        Please Call/Text{' '}
+                        <a href='tel:5198577942' title='Call or Text Matthew'>
+                            519-857-7942
+                        </a>{' '}
+                        or{' '}
+                        <a
+                            href='mailto:matttozer@gmail.com'
+                            title='Email Matthew'
+                        >
+                            email Matthew
+                        </a>{' '}
+                        for rates and availability.
+                    </strong>
+                </p>
+                <Reviews />
+            </section>
+            <section className={styles.section}>
                 <h2>About</h2>
                 <p>
                     Matthew Tozer currently resides in Woodstock, Ontario where
@@ -16,7 +50,7 @@ export default function Main() {
                     Composition from the University of Western Ontario and is a
                     member of the{' '}
                     <Link
-                        href={'https://cec.sonus.ca'}
+                        href={'https://cec.sonus.ca/'}
                         target={'_blank'}
                         rel={'noopener noreferrer'}
                     >
@@ -33,7 +67,7 @@ export default function Main() {
                         CMC,
                     </Link>{' '}
                     <Link
-                        href={'ttps://www.composition.org/current-members/'}
+                        href={'https://www.composition.org/current-members/'}
                         target={'_blank'}
                         rel={'noopener noreferrer'}
                     >
@@ -41,7 +75,7 @@ export default function Main() {
                     </Link>{' '}
                     and a{' '}
                     <Link
-                        href={'https://www.ormta.org'}
+                        href={'https://www.ormta.org/'}
                         target={'_blank'}
                         rel={'noopener noreferrer'}
                     >
@@ -59,50 +93,17 @@ export default function Main() {
                     harmony&apos; Matthew’s music has been performed across
                     Canada, the United States, and Europe. Matthew is actively
                     involved in the creation of new work through the
-                    collaborative process. His compositions have been
-                    work-shopped and/or performed by organizations and groups
-                    including: The Toronto Symphony Orchestra, TorQ Percussion,
-                    The Bozzini String Quartet, The Erato Ensemble, The
-                    Strathcona Quartet, The Vancouver Chamber Choir, The Aventa
-                    Ensemble, Soundstreams Canada, The Madawaksa String Quartet,
-                    and Pacific Opera Victoria.
+                    collaborative process. His compositions have been programmed
+                    in festivals and work-shopped and/or performed by
+                    organizations and groups including: The Toronto Symphony
+                    Orchestra, Four Corners Ensemble, Soundscape Music Festival,
+                    TorQ Percussion, The Bozzini String Quartet, Space City New
+                    Music Festival, The Erato Ensemble, The Strathcona Quartet,
+                    Domaine Forget, The Vancouver Chamber Choir, The Aventa
+                    Ensemble, Soundstreams Canada, Charlotte New Music Festival,
+                    The Madawaksa String Quartet, Soundstreams Festival, and
+                    Pacific Opera Victoria.
                 </p>
-            </section>
-            <section className={styles.section}>
-                <h2>Lessons</h2>
-                <p>
-                    Matthew Tozer holds a PhD in Music from the University of
-                    Western Ontario and was named Runner up in the London
-                    Community News 2015 Reader&apos;s Choice Awards for Music
-                    Schools.
-                </p>
-                <p>Matthew is always looking to add students to his studio.</p>
-                <p>
-                    Lessons available in: Classical Piano, Pop/Rock Piano,
-                    Trumpet, Music History, Music Theory and Composition.
-                </p>
-                <p className='center'>
-                    <strong>
-                        Lesson are available in your home or in his studio.
-                    </strong>
-                </p>
-                <p className='center'>
-                    <strong>
-                        Please Call{' '}
-                        <a href='tel:5198577942' title='Call Matthew'>
-                            519-857-7942
-                        </a>{' '}
-                        or{' '}
-                        <a
-                            href='mailto:matttozer@gmail.com'
-                            title='Email Matthew'
-                        >
-                            email Matthew
-                        </a>{' '}
-                        for rates and availability.
-                    </strong>
-                </p>
-                <Reviews />
             </section>
         </main>
     )

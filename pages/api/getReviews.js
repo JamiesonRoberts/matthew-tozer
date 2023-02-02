@@ -7,7 +7,7 @@ export default async function handler() {
     const id = setTimeout(() => controller.abort(), 1000)
 
     const response = await fetch(
-        `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}`,
+        `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
         { signal: controller.signal }
     )
     clearTimeout(id)

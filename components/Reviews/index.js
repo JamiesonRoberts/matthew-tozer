@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import classNames from 'classnames'
+import Flickity from 'react-flickity-component'
 
 import styles from './index.module.css'
 
@@ -12,10 +13,7 @@ export default function Reviews() {
         setLoading(true)
         fetch('/api/getReviews')
             .then((res) => res.json())
-            .then((data) => {
-                const withText = data.filter((review) => review.text.length > 0)
-                setData(withText)
-            })
+            .then(setData)
             .catch(() => setData(null))
             .finally(() => setLoading(false))
     }, [])
@@ -23,8 +21,6 @@ export default function Reviews() {
     if (isLoading) {
         return (
             <>
-                <hr className={styles.divider} />
-                <h3 className={styles.heading}>What others are saying</h3>
                 <div className={styles.quoteBlocks}>
                     <figure
                         className={classNames(
@@ -36,69 +32,14 @@ export default function Reviews() {
                             <p
                                 className={styles.skeletonBox}
                                 style={{
-                                    width: '11rem',
+                                    width: '75%',
                                     marginBottom: '0.25rem',
                                 }}
                             ></p>
                             <p
                                 className={styles.skeletonBox}
                                 style={{
-                                    width: '13rem',
-                                    marginBottom: '0.25rem',
-                                }}
-                            ></p>
-                            <p
-                                className={styles.skeletonBox}
-                                style={{
-                                    width: '9rem',
-                                    marginBottom: '0.25rem',
-                                }}
-                            ></p>
-                        </blockquote>
-                        <figcaption className={styles.caption}>
-                            <div
-                                className={classNames(
-                                    styles.skeletonImage,
-                                    styles.skeletonBox
-                                )}
-                            />
-                            <div className={styles.starAndName}>
-                                <div
-                                    className={styles.skeletonBox}
-                                    style={{ width: '6rem' }}
-                                ></div>
-                                <p
-                                    className={styles.skeletonBox}
-                                    style={{ width: '8rem' }}
-                                ></p>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <figure
-                        className={classNames(
-                            styles.quoteBlock,
-                            styles.loading
-                        )}
-                    >
-                        <blockquote className={styles.quote}>
-                            <p
-                                className={styles.skeletonBox}
-                                style={{
-                                    width: '11rem',
-                                    marginBottom: '0.25rem',
-                                }}
-                            ></p>
-                            <p
-                                className={styles.skeletonBox}
-                                style={{
-                                    width: '13rem',
-                                    marginBottom: '0.25rem',
-                                }}
-                            ></p>
-                            <p
-                                className={styles.skeletonBox}
-                                style={{
-                                    width: '9rem',
+                                    width: '60%',
                                     marginBottom: '0.25rem',
                                 }}
                             ></p>
@@ -129,13 +70,22 @@ export default function Reviews() {
 
     if (!data) return <></>
 
-    const quotes = data.sort(() => 0.5 - Math.random()).slice(0, 2)
+    const quotes = data.sort(() => 0.5 - Math.random())
 
     return (
         <>
-            <hr className={styles.divider} />
-            <h3 className={styles.heading}>What others are saying</h3>
-            <div className={styles.quoteBlocks}>
+            <Flickity
+                className={styles.quoteBlocks}
+                elementType={'div'}
+                options={{
+                    contain: true,
+                    adaptiveHeight: true,
+                    pageDots: false,
+                    prevNextButtons: true,
+                    wrapAround: true,
+                    draggable: true,
+                }}
+            >
                 {quotes.map((quote, i) => {
                     return (
                         <figure key={i} className={styles.quoteBlock}>
@@ -178,7 +128,7 @@ export default function Reviews() {
                         </figure>
                     )
                 })}
-            </div>
+            </Flickity>
         </>
     )
 }
