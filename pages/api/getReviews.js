@@ -8,7 +8,7 @@ export default async function handler() {
 
     const response = await fetch(
         `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
-        { signal: controller.signal }
+        { signal: controller.signal, next: { revalidate: 60 } }
     )
     clearTimeout(id)
 
@@ -16,5 +16,12 @@ export default async function handler() {
 
     if (!result) return new Response(null)
 
-    return new Response(JSON.stringify(result.reviews))
+    return new Response(JSON.stringify(result.reviews), {
+        status: 200,
+        headers: {
+            'content-type': 'application/json',
+            'cache-control':
+                'public, s-maxage=86400, stale-while-revalidate=43200',
+        },
+    })
 }
