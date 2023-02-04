@@ -23,6 +23,20 @@ const moduleExports = {
             },
         ],
     },
+    async redirects() {
+        return [
+            {
+                source: '/portfolio/:slug*',
+                destination: '/', // Matched parameters can be used in the destination
+                permanent: true,
+            },
+            {
+                source: '/events/:slug*',
+                destination: '/', // Matched parameters can be used in the destination
+                permanent: true,
+            },
+        ]
+    },
     sentry: {
         // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
         // sections below for information on the following options:
