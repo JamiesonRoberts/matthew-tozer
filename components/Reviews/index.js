@@ -101,6 +101,7 @@ export default function Reviews() {
                                     src={quote.profile_photo_url}
                                     width={50}
                                     height={50}
+                                    aria-hidden={true}
                                 />
                                 <div className={styles.starAndName}>
                                     <div className={styles.rating}>
