@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import PlausibleProvider from 'next-plausible'
-import { Abel, Marcellus } from '@next/font/google'
+import { Abel, Marcellus } from 'next/font/google'
 
 const abel = Abel({ weight: ['400'], subsets: ['latin'] })
 const marcellus = Marcellus({ weight: ['400'], subsets: ['latin'] })
