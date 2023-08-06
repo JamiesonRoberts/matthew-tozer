@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import classNames from 'classnames'
-import Flickity from 'react-flickity-component'
+import { useKeenSlider } from 'keen-slider/react'
 
 import styles from './index.module.css'
 
@@ -9,11 +9,25 @@ export default function Reviews() {
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(true)
 
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [sliderLoaded, setSliderLoaded] = useState(false)
+    const [sliderRef, instanceRef] = useKeenSlider({
+        selector: `.${styles.quoteBlock}`,
+        draggable: true,
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
+        created() {
+            setSliderLoaded(true)
+        },
+    })
+
     useEffect(() => {
         setLoading(true)
         fetch('/api/getReviews')
             .then((res) => res.json())
             .then(setData)
+            .then(() => instanceRef?.current?.update())
             .catch(() => setData(null))
             .finally(() => setLoading(false))
     }, [])
@@ -25,7 +39,7 @@ export default function Reviews() {
                     <figure
                         className={classNames(
                             styles.quoteBlock,
-                            styles.loading
+                            styles.loading,
                         )}
                     >
                         <blockquote className={styles.quote}>
@@ -48,7 +62,7 @@ export default function Reviews() {
                             <div
                                 className={classNames(
                                     styles.skeletonImage,
-                                    styles.skeletonBox
+                                    styles.skeletonBox,
                                 )}
                             />
                             <div className={styles.starAndName}>
@@ -74,18 +88,7 @@ export default function Reviews() {
 
     return (
         <>
-            <Flickity
-                className={styles.quoteBlocks}
-                elementType={'div'}
-                options={{
-                    contain: true,
-                    adaptiveHeight: true,
-                    pageDots: false,
-                    prevNextButtons: true,
-                    wrapAround: true,
-                    draggable: true,
-                }}
-            >
+            <div ref={sliderRef} className={styles.quoteBlocks}>
                 {quotes.map((quote, i) => {
                     return (
                         <figure key={i} className={styles.quoteBlock}>
@@ -129,7 +132,7 @@ export default function Reviews() {
                         </figure>
                     )
                 })}
-            </Flickity>
+            </div>
         </>
     )
 }
