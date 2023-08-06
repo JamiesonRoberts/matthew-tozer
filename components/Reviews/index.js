@@ -30,8 +30,8 @@ export default function Reviews () {
               setData(data);
               instanceRef?.current?.update();
           })
-          // .catch(() => setData(null))
-          // .finally(() => setLoading(false));
+          .catch(() => setData(null))
+          .finally(() => setLoading(false));
     }, []);
 
     if (isLoading) {
