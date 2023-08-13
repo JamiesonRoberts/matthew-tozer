@@ -9,7 +9,6 @@
 
 .quoteContainer {
     display: flex;
-    flex: 1 1 100%;
     max-width: calc(55rem - (var(--global-padding)*3));
     margin: 0 auto;
     flex-direction: column;
@@ -32,7 +31,7 @@
 .quoteBlock {
     background-color: #ffffff;
     padding: var(--global-padding);
-    flex: 1 1 100%;
+    flex: 1 0 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +42,14 @@
 .quoteBlockContainer {
     display: block;
     align-self: flex-start;
+}
+
+.quoteBlockContainer:nth-child(n+2) {
+    display: none;
+}
+
+.quoteBlocksLoaded .quoteBlockContainer:nth-child(n+2) {
+    display: block;
 }
 
 .quote {
