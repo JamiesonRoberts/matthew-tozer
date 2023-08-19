@@ -4,7 +4,7 @@ import Reviews from '@/components/Reviews'
 
 import styles from './index.module.css'
 
-export default function Main() {
+export default function Main({ reviews }) {
     return (
         <main className={styles.main}>
             <section className={styles.section}>
@@ -39,7 +39,7 @@ export default function Main() {
                         for rates and availability.
                     </strong>
                 </p>
-                <Reviews />
+                <Reviews reviews={reviews} />
             </section>
             <section className={styles.section}>
                 <h2>About</h2>
