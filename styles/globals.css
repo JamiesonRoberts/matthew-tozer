@@ -70,11 +70,18 @@ p + p {
     margin: 0 auto;
 }
 
+@media (min-width: 37.5rem) {
+    .layout {
+        padding: var(--global-padding);
+    }
+}
+
 .flickity-viewport {
     overflow: hidden;
     position: relative;
     width: 100%;
     outline: none;
+    transition: height 0.2s ease-in-out;
 }
 
 .flickity-viewport .flickity-slider {
@@ -117,8 +124,4 @@ p + p {
     left: -1.625rem;
 }
 
-@media (min-width: 37.5rem) {
-    .layout {
-        padding: var(--global-padding);
-    }
-}
+

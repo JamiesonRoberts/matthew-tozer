@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import classNames from 'classnames'
 import Flickity from 'react-flickity-component'
 
 import styles from './index.module.css'

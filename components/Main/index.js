@@ -4,9 +4,9 @@ import Reviews from '@/components/Reviews'
 
 import styles from './index.module.css'
 
-export default function Main({ reviews }) {
+export default function Main({ gridArea, reviews }) {
     return (
-        <main className={styles.main}>
+        <main className={styles.main} style={{ gridArea }}>
             <section className={styles.section}>
                 <h2>Lessons</h2>
                 <p>
