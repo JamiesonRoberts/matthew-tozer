@@ -1,18 +1,10 @@
-.divider {
-    margin: var(--global-padding) 0;
-    border-bottom: 0;
-}
-
-.heading {
-    margin: 0;
-}
-
 .quoteBlocks {
     position: relative;
     min-height: 9rem;
     width: calc(100% - 1rem);
     margin: var(--global-padding) auto 0;
     outline: none;
+    background-color: white;
 }
 
 .quoteBlock {
@@ -26,10 +18,6 @@
     width: 100%;
     margin: 0;
     min-height: 9rem;
-}
-
-.quoteBlock.loading {
-    min-height: 10rem;
 }
 
 .quote {
@@ -56,19 +44,4 @@
 .rating svg {
     width: 1rem;
     height: auto;
-}
-
-.skeletonBox {
-    display: block;
-    height: 1em;
-    position: relative;
-    overflow: hidden;
-    background-color: #DDDBDD;
-    padding: 0;
-}
-
-.skeletonImage {
-    width: 3.125rem;
-    height: 3.125rem;
-    border-radius: 50%;
 }

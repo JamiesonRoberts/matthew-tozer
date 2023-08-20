@@ -71,9 +71,9 @@ export default function Home({ locationData, reviews }) {
                 <link rel='canonical' href='https://matthewtozer.com' />
             </Head>
             <div className={'layout'}>
-                <Header />
-                <Main reviews={reviews} />
-                <Footer />
+                <Header gridArea={'header'} />
+                <Main gridArea={'main'} reviews={reviews} />
+                <Footer gridArea={'footer'} />
             </div>
             <StructuredData locationData={locationData} />
         </>
