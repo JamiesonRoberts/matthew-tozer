@@ -4,6 +4,8 @@ import Flickity from 'react-flickity-component'
 import styles from './index.module.css'
 
 export default function Reviews({ reviews }) {
+    const quotes = reviews.sort(() => 0.5 - Math.random())
+
     return (
         <>
             <Flickity
@@ -12,13 +14,13 @@ export default function Reviews({ reviews }) {
                 options={{
                     contain: true,
                     adaptiveHeight: true,
-                    pageDots: false,
+                    pageDots: true,
                     prevNextButtons: true,
                     wrapAround: true,
                     draggable: true,
                 }}
             >
-                {reviews.map((quote, i) => {
+                {quotes.map((quote, i) => {
                     return (
                         <figure key={i} className={styles.quoteBlock}>
                             {quote.text ? (
