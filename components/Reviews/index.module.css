@@ -1,10 +1,9 @@
 .quoteBlocks {
     position: relative;
     min-height: 9rem;
-    width: calc(100% - 1rem);
+    width: 100%;
     margin: var(--global-padding) auto 0;
     outline: none;
-    background-color: white;
 }
 
 .quoteBlock {
@@ -44,4 +43,82 @@
 .rating svg {
     width: 1rem;
     height: auto;
+}
+
+
+.quoteBlocks :global(.flickity-viewport) {
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    outline: none;
+    transition: height 0.2s ease-in-out;
+}
+
+.quoteBlocks :global(.flickity-slider) {
+    width: 100%;
+    height: 100%;
+}
+
+.quoteBlocks :global(.flickity-page-dots) {
+    list-style: none;
+    margin: 0;
+    padding: var(--global-padding) 0 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--global-padding);
+}
+
+.quoteBlocks :global(.dot::after) {
+    width: 0.75rem;
+    height: 0.75rem;
+    content: '';
+    background-color: black;
+    display: block;
+    border-radius: 1rem;
+    opacity: 0.3;
+    transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+.quoteBlocks :global(.dot.is-selected::after) {
+    opacity: 0.7;
+    width: 1rem;
+}
+
+.quoteBlocks :global(.flickity-button) {
+    display: none;
+}
+
+.flickity-button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(232,232,232,0.5);
+    transition: background-color 0.2s ease;
+    outline: none;
+}
+
+.flickity-button:hover, .flickity-button:focus {
+    background-color: rgba(232,232,232,1);
+}
+
+.flickity-button svg {
+    width: 75%;
+}
+
+.flickity-button.next {
+    right: -1.625rem;
+}
+
+.flickity-button.previous {
+    left: -1.625rem;
 }

@@ -15,7 +15,7 @@ export async function getStaticProps() {
     return {
         props: {
             locationData: result,
-            reviews: result.reviews.sort(() => 0.5 - Math.random()),
+            reviews: result.reviews,
         },
     }
 }
