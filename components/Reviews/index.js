@@ -15,7 +15,7 @@ export default function Reviews({ reviews }) {
                     contain: true,
                     adaptiveHeight: true,
                     pageDots: true,
-                    prevNextButtons: true,
+                    prevNextButtons: false,
                     wrapAround: true,
                     draggable: true,
                 }}
