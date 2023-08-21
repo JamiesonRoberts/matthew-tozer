@@ -59,9 +59,10 @@ p + p {
 }
 
 .layout {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'header' 'main' 'footer';
     justify-content: center;
     gap: var(--global-padding);
     padding: 0;
@@ -70,58 +71,11 @@ p + p {
     margin: 0 auto;
 }
 
-@media (min-width: 37.5rem) {
+@media (min-width: 60rem) {
     .layout {
+        grid-template-columns: 20rem auto;
+        grid-template-rows: auto;
+        grid-template-areas: 'header main' 'footer footer';
         padding: var(--global-padding);
     }
 }
-
-.flickity-viewport {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    outline: none;
-    transition: height 0.2s ease-in-out;
-}
-
-.flickity-viewport .flickity-slider {
-    height: 100%;
-    width: 100%;
-    outline: none;
-}
-
-.flickity-button {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: rgba(232,232,232,0.5);
-    transition: background-color 0.2s ease;
-    outline: none;
-}
-
-.flickity-button:hover, .flickity-button:focus {
-    background-color: rgba(232,232,232,1);
-}
-
-.flickity-button svg {
-    width: 75%;
-}
-
-.flickity-button.next {
-    right: -1.625rem;
-}
-
-.flickity-button.previous {
-    left: -1.625rem;
-}
-
-
