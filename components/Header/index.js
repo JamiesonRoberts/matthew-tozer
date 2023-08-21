@@ -6,11 +6,11 @@ import styles from './index.module.css'
 
 import profilePic from '@/public/mtozerheadshot.jpg'
 
-export default function Header() {
+export default function Header({ gridArea }) {
     const plausible = usePlausible()
 
     return (
-        <header className={styles.header}>
+        <header className={styles.header} style={{ gridArea }}>
             <h1 className={styles.title}>
                 Matthew Tozer <span>Composer &amp; Educator</span>
             </h1>

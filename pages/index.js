@@ -7,7 +7,7 @@ import StructuredData from '@/components/StructuredData'
 
 export async function getStaticProps() {
     const res = await fetch(
-        `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}`
+        `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
     )
 
     const { result } = await res.json()
@@ -15,11 +15,12 @@ export async function getStaticProps() {
     return {
         props: {
             locationData: result,
+            reviews: result.reviews.sort(() => 0.5 - Math.random()),
         },
     }
 }
 
-export default function Home({ locationData }) {
+export default function Home({ locationData, reviews }) {
     return (
         <>
             <Head>
@@ -70,9 +71,9 @@ export default function Home({ locationData }) {
                 <link rel='canonical' href='https://matthewtozer.com' />
             </Head>
             <div className={'layout'}>
-                <Header />
-                <Main />
-                <Footer />
+                <Header gridArea={'header'} />
+                <Main gridArea={'main'} reviews={reviews} />
+                <Footer gridArea={'footer'} />
             </div>
             <StructuredData locationData={locationData} />
         </>
