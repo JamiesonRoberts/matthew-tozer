@@ -1,41 +1,41 @@
 export default function StructuredData({ locationData }) {
-    const dayMapping = {
-        0: 'Sunday',
-        1: 'Monday',
-        2: 'Tuesday',
-        3: 'Wednesday',
-        4: 'Thursday',
-        5: 'Friday',
-        6: 'Saturday',
-    }
+  const dayMapping = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  }
 
-    const openingHoursSpecification = []
+  const openingHoursSpecification = []
 
-    locationData.opening_hours.periods.forEach((period) => {
-        const opens = `${period.open.time.substring(
-            0,
-            2
-        )}:${period.open.time.substring(2)}`
-        const closes = `${period.close.time.substring(
-            0,
-            2
-        )}:${period.close.time.substring(2)}`
-        openingHoursSpecification.push({
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: `${dayMapping[period.open.day]}`,
-            opens,
-            closes,
-        })
+  locationData.opening_hours?.periods?.forEach((period) => {
+    const opens = `${period.open.time.substring(
+      0,
+      2,
+    )}:${period.open.time.substring(2)}`
+    const closes = `${period.close.time.substring(
+      0,
+      2,
+    )}:${period.close.time.substring(2)}`
+    openingHoursSpecification.push({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: `${dayMapping[period.open.day]}`,
+      opens,
+      closes,
     })
+  })
 
-    return (
-        <>
-            <script
-                type='application/ld+json'
-                key={'Person-jsonld'}
-                id={'person'}
-                dangerouslySetInnerHTML={{
-                    __html: `{
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        key={'Person-jsonld'}
+        id={'person'}
+        dangerouslySetInnerHTML={{
+          __html: `{
                         "@context": "http://www.schema.org",
                         "@type": "Person",
                         "@id": "https://matthewtozer.com/#person",
@@ -153,14 +153,14 @@ export default function StructuredData({ locationData }) {
                             "https://ca.linkedin.com/in/matthew-tozer-00333b2b"
                         ]
                     }`,
-                }}
-            />
-            <script
-                type='application/ld+json'
-                key={'LocalBusiness-jsonld'}
-                id={'localBusiness'}
-                dangerouslySetInnerHTML={{
-                    __html: `{
+        }}
+      />
+      <script
+        type='application/ld+json'
+        key={'LocalBusiness-jsonld'}
+        id={'localBusiness'}
+        dangerouslySetInnerHTML={{
+          __html: `{
                         "@context": "https://schema.org",
                         "@type": "LocalBusiness",
                         "@id": "https://matthewtozer.com/#localbusiness",
@@ -189,26 +189,26 @@ export default function StructuredData({ locationData }) {
                         },
                         "aggregateRating": {
                             "@type": "AggregateRating",
-                            "ratingValue": ${locationData.rating},
-                            "reviewCount": ${locationData.user_ratings_total}
+                            "ratingValue": ${locationData?.rating},
+                            "reviewCount": ${locationData?.user_ratings_total}
                         },
                         "geo": {
                             "@type": "GeoCoordinates",
-                            "latitude": ${locationData.geometry.location.lat},
-                            "longitude": ${locationData.geometry.location.lng}
+                            "latitude": ${locationData.geometry?.location.lat},
+                            "longitude": ${locationData.geometry?.location.lng}
                         },
                         "openingHoursSpecification": ${JSON.stringify(
-                            openingHoursSpecification
+                          openingHoursSpecification,
                         )}
                     }`,
-                }}
-            />
-            <script
-                type='application/ld+json'
-                key={'Website-jsonld'}
-                id={'website'}
-                dangerouslySetInnerHTML={{
-                    __html: `{
+        }}
+      />
+      <script
+        type='application/ld+json'
+        key={'Website-jsonld'}
+        id={'website'}
+        dangerouslySetInnerHTML={{
+          __html: `{
                         "@context": "http://schema.org",
                         "@type": "WebSite",
                         "@id": "https://matthewtozer.com/#website",
@@ -223,8 +223,8 @@ export default function StructuredData({ locationData }) {
                             "@id": "https://matthewtozer.com/#person"
                         }
                     }`,
-                }}
-            />
-        </>
-    )
+        }}
+      />
+    </>
+  )
 }
