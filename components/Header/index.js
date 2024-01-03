@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePlausible } from 'next-plausible'
 
 import styles from './index.module.css'
 
 import profilePic from '@/public/mtozerheadshot.jpg'
 
 export default function Header({ gridArea }) {
-    const plausible = usePlausible()
 
     return (
         <header className={styles.header} style={{ gridArea }}>
@@ -171,7 +169,6 @@ export default function Header({ gridArea }) {
                         'mailto:matttozer@gmail.com?subject=Email%20Connection%20from%20MatthewTozer.com'
                     }
                     onClick={() => {
-                        plausible('Email Button: Click')
                     }}
                     className={styles.cta}
                 >
