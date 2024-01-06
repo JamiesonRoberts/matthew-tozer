@@ -7,10 +7,11 @@
 }
 
 .section {
-  background-color: rgba(228, 233, 246, 0.4);
   border-top: 0.25rem solid #307991;
   border-bottom: 0.25rem solid #309179;
   padding: var(--global-padding);
+  -webkit-backdrop-filter: blur(0.125rem);
+  backdrop-filter: blur(0.125rem);
 }
 
 .section h2 {

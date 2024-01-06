@@ -1,5 +1,5 @@
 import CloudflareWebAnalyticsProvider from 'next-cloudflare-web-analytics'
-import { Abel, Marcellus } from 'next/font/google'
+import { Abel, Lora } from 'next/font/google'
 
 import '@/components/_globals/globals.css'
 
@@ -10,11 +10,10 @@ const abel = Abel({
   variable: '--abel',
 })
 
-const marcellus = Marcellus({
-  weight: ['400'],
+const lora = Lora({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--marcellus',
+  variable: '--lora',
 })
 
 export const viewport = {
@@ -40,7 +39,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en-CA' className={`${abel.variable} ${marcellus.variable}`}>
+    <html lang='en-CA' className={`${abel.variable} ${lora.variable}`}>
       <CloudflareWebAnalyticsProvider token={'XXXXXXXX'} />
       <body>{children}</body>
     </html>
