@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { useKeenSlider } from 'keen-slider/react'
 
 import 'keen-slider/keen-slider.min.css'
-
 import styles from './index.module.css'
 
 const AdaptiveHeight = (slider) => {
@@ -19,7 +18,6 @@ const AdaptiveHeight = (slider) => {
 
 export default function Reviews({ reviews }) {
   const [isClient, setIsClient] = useState(false)
-  const [loaded, setLoaded] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const [sliderRef, instanceRef] = useKeenSlider(
@@ -27,9 +25,6 @@ export default function Reviews({ reviews }) {
       initial: 0,
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
-      },
-      created() {
-        setLoaded(true)
       },
     },
     [AdaptiveHeight],
@@ -39,7 +34,41 @@ export default function Reviews({ reviews }) {
     setIsClient(true)
   }, [])
 
-  if (!isClient) return <></>
+  if (!isClient) {
+    return (
+      <>
+        <div className={styles.quoteBlocks}>
+          <div className={styles.quoteBlock}>
+            <blockquote
+              className={`${styles.loader} ${styles.quote}`}
+              style={{ height: '1rem', width: '75%' }}
+            ></blockquote>
+            <figcaption className={styles.caption}>
+              <div
+                className={styles.loader}
+                style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+              />
+              <div className={styles.starAndName}>
+                <div
+                  className={styles.loader}
+                  style={{ height: '1rem', width: '5rem' }}
+                />
+                <div
+                  className={styles.loader}
+                  style={{ height: '1rem', width: '7rem' }}
+                />
+              </div>
+            </figcaption>
+          </div>
+        </div>
+        <ol className={styles.pageDots}>
+          {[...Array(reviews.length)].map((content, i) => {
+            return <li key={i} className={`${styles.dot}`}></li>
+          })}
+        </ol>
+      </>
+    )
+  }
 
   return (
     <>
