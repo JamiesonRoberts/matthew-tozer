@@ -5,21 +5,6 @@ import Reviews from '@/components/Reviews'
 
 import styles from './page.module.css'
 
-// export async function getStaticProps() {
-//   const res = await fetch(
-//     `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
-//   )
-//
-//   const { result } = await res.json()
-//
-//   return {
-//     props: {
-//       locationData: result,
-//       reviews: result.reviews,
-//     },
-//   }
-// }
-
 export const metadata = {
   title: 'Dr. Matthew Tozer - Composer & Educator',
   description:
@@ -57,9 +42,21 @@ export const metadata = {
   },
 }
 
-export default function Home() {
-  const locationData = {}
-  const reviews = []
+async function getData() {
+  const res = await fetch(
+    `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
+  )
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return res.json()
+}
+
+export default async function Home() {
+  const data = await getData()
 
   return (
     <>
@@ -92,7 +89,7 @@ export default function Home() {
               for rates and availability.
             </strong>
           </p>
-          <Reviews reviews={reviews} />
+          <Reviews reviews={data.result.reviews} />
         </section>
         <section className={styles.section}>
           <h2>About</h2>
@@ -157,7 +154,7 @@ export default function Home() {
         </section>
       </main>
 
-      <StructuredData locationData={locationData} />
+      <StructuredData locationData={data.result} />
     </>
   )
 }
