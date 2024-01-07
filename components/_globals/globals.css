@@ -1,5 +1,5 @@
 :root {
-  --global-padding: 1.5625rem;
+  --global-padding: 1.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

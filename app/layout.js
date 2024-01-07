@@ -40,7 +40,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en-CA' className={`${abel.variable} ${lora.variable}`}>
-      <CloudflareWebAnalyticsProvider token={'XXXXXXXX'} />
+      <CloudflareWebAnalyticsProvider
+        token={'ca731f94165c45edb0c179b40a418310'}
+      />
       <body>{children}</body>
     </html>
   )

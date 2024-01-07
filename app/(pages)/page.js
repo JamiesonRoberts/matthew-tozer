@@ -42,6 +42,8 @@ export const metadata = {
   },
 }
 
+export const revalidate = 43200
+
 async function getData() {
   const res = await fetch(
     `${process.env.GOOGLE_API_URL}&key=${process.env.SERVER_API_KEY}&reviews_sort=newest`,
@@ -60,7 +62,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className={styles.main} style={{ gridArea: 'main' }}>
+      <main className={styles.main}>
         <section className={styles.section}>
           <h2>Lessons</h2>
           <p>
