@@ -1,0 +1,26 @@
+.main {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-padding);
+}
+
+@media (min-width: 60rem) {
+  .main {
+    max-width: calc(100% - 20rem - var(--global-padding));
+  }
+}
+
+.section {
+  border-top: 0.25rem solid #307991;
+  border-bottom: 0.25rem solid #309179;
+  padding: var(--global-padding);
+  -webkit-backdrop-filter: blur(0.125rem);
+  backdrop-filter: blur(0.125rem);
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  padding-bottom: 0.5rem;
+}

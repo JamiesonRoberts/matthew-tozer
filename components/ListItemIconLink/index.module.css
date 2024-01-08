@@ -1,0 +1,36 @@
+.listItemIconLink {
+  display: flex;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #ffffff;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  justify-content: center;
+  transition: background-color 0.25s;
+}
+
+.listItemIconLinkSVG {
+  height: 1.25rem;
+  width: auto;
+}
+
+.listItemIconLinkSVG svg {
+  transition: color 0.25s;
+}
+
+.listItemIconLink:hover,
+.listItemIconLink:focus {
+  background-color: transparent !important;
+  color: #231942 !important;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

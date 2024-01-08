@@ -1,86 +1,91 @@
 .quoteBlocks {
-    position: relative;
-    min-height: 9rem;
-    width: 100%;
-    margin: var(--global-padding) auto 0;
-    outline: none;
+  position: relative;
+  width: 100%;
+  margin: var(--global-padding) auto 0;
+  outline: none;
+  height: auto;
 }
 
 .quoteBlock {
-    background-color: #ffffff;
-    padding: var(--global-padding);
-    flex: 1 1 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--global-padding);
-    width: 100%;
-    margin: 0;
-    min-height: 9rem;
+  background-color: #ffffff;
+  padding: var(--global-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--global-padding);
+  width: 100%;
+  margin: 0;
 }
 
 .quote {
-    margin: 0;
+  margin: 0;
 }
 
 .caption {
-    display: flex;
-    align-items: center;
-    gap: var(--global-padding);
+  display: flex;
+  align-items: center;
+  gap: var(--global-padding);
 }
 
 .starAndName {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .rating {
-    display: flex;
-    padding-top: 0.25rem;
+  display: flex;
+  padding-top: 0.25rem;
 }
 
 .rating svg {
-    width: 1rem;
-    height: auto;
+  width: 1rem;
+  height: auto;
 }
 
-
-.quoteBlocks :global(.flickity-viewport) {
-    background-color: white;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    outline: none;
-    transition: height 0.2s ease-in-out;
+@keyframes loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 
-.quoteBlocks :global(.flickity-slider) {
-    width: 100%;
-    height: 100%;
+.loader {
+  color: transparent;
+  background: linear-gradient(100deg, #eceff1 30%, #f6f7f8 50%, #eceff1 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
 }
 
-.quoteBlocks :global(.flickity-page-dots) {
-    list-style: none;
-    margin: 0;
-    padding: var(--global-padding) 0 0;
-    display: flex;
-    justify-content: center;
-    gap: var(--global-padding);
+.pageDots {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.quoteBlocks :global(.dot::after) {
-    width: 0.75rem;
-    height: 0.75rem;
-    content: '';
-    background-color: black;
-    display: block;
-    border-radius: 1rem;
-    opacity: 0.3;
-    transition: opacity 0.2s ease-in-out, width 0.2s ease-in-out;
+.dot {
+  cursor: pointer;
 }
 
-.quoteBlocks :global(.dot.is-selected::after) {
-    opacity: 0.7;
-    width: 1rem;
+.dot::after {
+  width: 0.75rem;
+  height: 0.75rem;
+  content: '';
+  background-color: black;
+  display: block;
+  border-radius: 1rem;
+  opacity: 0.3;
+  transition:
+    opacity 0.2s ease-in-out,
+    width 0.2s ease-in-out;
+}
+
+.dot.selected::after {
+  opacity: 0.7;
+  width: 1rem;
 }
